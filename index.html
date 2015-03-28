@@ -4,18 +4,21 @@
         <title>Flash Cards</title>
         <!-- We've provided some styles for you, aren't we nice? -->
         <link rel="stylesheet" type="text/css" href="reset.css" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body ng-app="flashcards">
       <div ng-controller="MainController">
-        <div class="flash-card" ng-controller="FlashCardController" ng-repeat="flashCard in flashCards">
-          <h1>{{flashCard.question}}</h1>
+        <div class="flash-card" ng-controller="FlashCardController" ng-repeat="flashCard in flashCards | orderBy: 'question'">
+         
+          <h1>{{flashCard.question | uppercase}}</h1>
             <ul class="flash-card-answers">
-              <li class="flash-card-answer" ng-repeat="answer in flashCard.answers" ng-click="answerQuestion(answer)" ng-show="answer.renderAnswer">
+              <li class="flash-card-answer" ng-repeat="answer in flashCard.answers" ng-click="answerQuestion(answer)" ng-class="{unanswered: answer.changeColor == 'unanswered', correct: answer.changeColor, incorrect: !answer.changeColor}">
                   {{answer.text}}
               </li>
             </ul>
-            <h2 class="answer-feedback" ng-show="answered">
+
+            <h2 class="answer-feedback" ng-show="answered" ng-class="{correct: answeredCorrectly, incorrect: !answeredCorrectly}">
               <span ng-show="answeredCorrectly">Yeah, you got it right!</span>
               <span ng-show="!answeredCorrectly">Nope, you got it wrong.</span>
             </h2>

@@ -7,7 +7,7 @@
   margin: 0 auto;
   margin-top: 40px;
   border: 1px solid black;
-  font-family: Helvetica;
+  font-family: 'Open Sans', sans-serif;
   padding: 50px;
   box-shadow: 3px 4px 5px 1px #6b6b6b; }
   .flash-card h1 {
@@ -42,7 +42,23 @@
   text-align: center;
   margin-top: 50px;
   font-weight: bold; }
-  .answer-feedback.correct {
-    color: green; }
-  .answer-feedback.incorrect {
-    color: red; }
+
+.flash-card-answer.correct {
+  background-color: #A2CD5A;
+  color: white; 
+}
+.flash-card-answer.incorrect {
+  background-color: #EE2C2C;
+  color: white; 
+}
+.flash-card-answer.unanswered {
+  background-color: white;
+  color: black;
+}
+
+.answer-feedback.correct {
+  color: green;
+}
+.answer-feedback.incorrect {
+  color: red;
+}
