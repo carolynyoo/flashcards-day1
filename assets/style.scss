@@ -64,3 +64,18 @@
     color: red;
   }
 }
+
+.flash-card-answer {
+  &.correct {
+    background-color: #A2CD5A;
+    color: white; 
+  }
+  &.incorrect {
+    background-color: #EE2C2C;
+    color: white;
+  }
+  &.unanswered {
+    background-color: white;
+    color: black;
+  }
+}
